@@ -1,0 +1,256 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #add8e6;
+  /* background-image: url("C:\Users\Dell\Downloads\background-white-elegant-texture_23-2148438404");  Replace with the actual URL of your background image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+h1 {
+  font-family: Copperplate Gothic;
+  text-align: center;
+  margin-top: 50px;
+}
+
+button {
+  font-family: Copperplate Gothic;
+  width: 200px;
+  padding: 10px 0;
+  text-align: center;
+  margin: 15px 5px;
+  border-radius: 20px;
+  font-weight: bold;
+  border: 2px solid gold;
+  background: transparent;
+  cursor: pointer;
+  color: black;
+  position: relative;
+  overflow: hidden;
+}
+
+span {
+  background: gold;
+  height: 100%;
+  width: 0;
+  border-radius: 25px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: 0.5s;
+}
+
+button:hover span {
+  width: 100%;
+}
+
+button:hover span {
+  border: none;
+}
+
+.navbar {
+
+  width: 85%;
+  margin: auto;
+  padding: 35px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+  position: relative;
+}
+
+.navbar ul li a {
+  font-family: Copperplate Gothic;
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+}
+
+.navbar ul li::after {
+  content: "";
+  height: 3px;
+  width: 0;
+  background: gold;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  transition: 0.5s;
+}
+
+.navbar ul li:hover::after {
+  width: 100%;
+}
+
+#preloader {
+  /* background: #000 url("loader.gif") no-repeat center center; */
+  background-size: 30%;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+}
+
+.popup {
+  height: 200px;
+  width: 400px;
+  background: #000;
+  border-radius: 6px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  text-align: center;
+  padding: 0 30px 30px;
+  color: #333;
+  visibility: hidden;
+  transition: transform 0.5s, top 0.5s;
+}
+
+.open-popup {
+  visibility: visible;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.popup h2 {
+  font-family: Arial, sans-serif;
+  margin: 30px 0 10px;
+}
+
+.popup button {
+  width: 50%;
+}
+
+.container {
+  padding: 20px;
+}
+
+.row {
+  margin-bottom: 20px;
+}
+
+.col-4,
+.col-8,
+.col-6 {
+  padding: 10px;
+  color: black; 
+  font-family: Copperplate Gothic;
+}
+
+input[type="text"],
+input[type="datetime-local"],
+input[type="time"] {
+  font-family: Arial, sans-serif;
+  width: 100%;
+  padding: 5px;
+  border: 2px solid gold;
+  border-radius: 5px;
+}
+
+input[type="checkbox"] {
+  margin-top: 5px;
+}
+
+.container1 {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box1 {
+  width: 300px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.form-group1 {
+  margin-bottom: 20px;
+}
+
+label {
+  color: black; 
+  font-weight: 500;
+}
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ffcc00; /* Yellow outline for input boxes */
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  
+  padding: 10px 0;
+  text-align: center;
+  margin-top: 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  border: 2px solid #ffcc00; 
+  background: transparent;
+  cursor: pointer;
+  color: black;
+  position: relative;
+  overflow: hidden;
+}
+
+button[type="submit"] span {
+  background: #ffcc00; 
+  height: 100%;
+  width: 0;
+  border-radius: 20px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: 0.5s;
+}
+
+button[type="submit"]:hover span {
+  width: 100%;
+}
+button[type="reset"] {
+  
+  padding: 10px 0;
+  text-align: center;
+  margin-top: 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  border: 2px solid #ffcc00; 
+  background: transparent;
+  cursor: pointer;
+  color: black;
+  position: relative;
+  overflow: hidden;
+}
+
+button[type="reset"] span {
+  background: #ffcc00; 
+  height: 100%;
+  width: 0;
+  border-radius: 20px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: 0.5s;
+}
+
+button[type="reset"]:hover span {
+  width: 100%;
+}
+.text-center1 {
+  text-align: center;
+}
