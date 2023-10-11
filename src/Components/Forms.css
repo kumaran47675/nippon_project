@@ -1,0 +1,60 @@
+
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  /* .enter-details {
+    margin-top: 20px;
+  } */
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .forms {
+    padding: 20px;
+    background-color: rgba(0,0,0,0.1);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+.container::before{
+  content: "Enter-Details:";
+  padding: 5px;
+  font-size: x-large;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+  .form-group {
+    margin-bottom: 15px;
+  } 
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .row {
+    margin-bottom: 15px;
+  }
+  
+  .form-button {
+    width: 100%;
+  }
+  
+  
+  .form-group select {
+    width: 100%;
+    
+  }

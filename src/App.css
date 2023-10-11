@@ -1,0 +1,169 @@
+html,
+body {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* width: 100%; */
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+
+
+.container{
+  /* width: 100%; */
+  padding:20px;
+}
+
+.container h3{
+  /* width:100%; */
+  
+  color: black;
+}
+
+.container h1{
+  /* width:100%; */
+  text-align: center;
+  /* color: rgb(66, 56, 215); */
+  color: black;
+  /* position: relative; */
+}
+
+
+.observation-form{
+  font-family: Arial, Helvetica, sans-serif;
+  /* width: 100%; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+  justify-content: center;
+  background-color: rgba(0,0,0,0.3);
+  padding:2rem;
+  font-size: 20px;
+  gap: 1px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+  /* color: rgb(117, 186, 247); */
+  position: relative;
+
+}
+
+.observation-form div{
+  margin-top: 1rem;
+}
+
+.observation-form input{
+  margin-top: 1rem;
+  width: 26vw;
+  height: 30px;
+  border: 1.5px solid black;
+  border-radius: 0.5rem;
+  padding: 5px;
+  font-size: medium;
+}
+
+.observation-form select{
+  margin-top: 1rem;
+  width: 15vw;
+  height: 30px;
+  border: 1.5px solid black;
+  border-radius: 0.5rem;
+  font-size: medium;
+}
+
+
+
+.submit-button{
+  position:absolute;
+  
+  bottom: 10px;
+  right: 10px;
+  
+  /* margin-bottom:1rem; */
+  min-width:10vw;
+  height: 5vh;
+}
+
+.observation-form-button{
+  width: 100%;
+  height: 80%;
+  border-radius: 10px;
+  font-size:medium;
+  font-weight: 300;
+}
+
+button:hover{
+  background-color: black;
+  color:aliceblue;
+} 
+
+
+
+.menu-container{
+  width: 250px;
+  border: 2px solid rgba(0,0,0,0.9);
+  overflow-y: scroll;
+  padding: 8px;
+  height:83vh;
+}
+
+.menu-heading{
+  text-align: center;
+  /* display: inline; */
+}
+.menu-heading h2{
+  text-align: center;
+  width: auto;
+  display: inline;
+  margin-left: 5px;
+}
+.menu-heading img{
+  display: inline;
+
+}
+
+.menu-container ul{
+  padding-left: 20px;
+}
+
+
+.menu-container ul li{
+  list-style: none;
+  margin: 10px 0;
+  
+}
+
+.menu-container ul li a{
+  text-decoration: none;
+  font-size:medium;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+
+}
+
+.menu-container ul li a:hover{
+  color:rgb(66, 56, 215)
+}
+
+
+  /* Tinting */
+
+.custom-container {
+  background-color: rgba(0, 0, 0, 0.5); 
+  padding: 20px; 
+  margin: 20px; 
+  position: relative; 
+}
+.box-submit-button {
+  position: absolute;
+  bottom: 10px; 
+  right: 10px; 
+  background-color: rgba(255, 255, 255, 0.5); 
+  border: none; 
+  color: #000; 
+}
+.enter-details {
+  position: absolute;
+  top: 10px; 
+  left: 55px; 
+  margin:20px;
+  padding:30px;
+}
