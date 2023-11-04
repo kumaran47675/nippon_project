@@ -1,38 +1,54 @@
-
-import LoginCSS from './Login.module.css';
-import {useState} from "react";
-import { ToastContainer,toast } from "react-toastify";
+import React, { useState } from "react";
+import { useForm } from "antd/es/form/Form";
+import { Button, Form, Input } from "antd";
+import axios from "axios";
+import { toast } from "react-toastify";
+import './Login.css';
+import {useNavigate} from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import {useNavigate} from "react-router-dom"
-const  LoginPage= ({ setToken, setUser }) => 
-{
-  const navigate = useNavigate();
-    const pattern=new RegExp('^\s*$');
-    const [Username,setUsername]=useState('');
-    const [Password,setPassword]=useState('');
-    const [con,setCon]=useState(false);
-    const handleSubmit=(e)=>{
-      e.preventDefault();
-      if(validate())
-      {
-         fetch(`http://localhost:5147/api/login/get/${Username}`)
-         .then(response=> response.json()).then(json=>
-          {
-              if(json.length!=0)
-              {
-                  if(json[0].username==Username)
-                  {
-                    if(json[0].password===Password)
+function Login({ setToken, setUserId, setUserName,setDepot}) {
+    const [LoginForm] = useForm();
+    const onLoginClick = () => {
+        
+        let Input = LoginForm.getFieldValue()
+        if(validate(Input["userId"],Input["password"]))
+        {
+            
+                axios.get(`https://localhost:7206/api/login/get/${Input["userId"]}`)
+                .then((response)=>{
+                   
+                if(response.data.length!=0)
+                {
+                    if(response.data[0].userId===Input["userId"])
                     {
-                     
-                      setToken(true);
-                      setUser(Username)
-                      navigate("/landing")
-
+                      if(response.data[0].password===Input["password"])
+                      {
+                       
+                        setUserId(Input["userId"]);
+                        setUserName(response.data[0].userName)
+                        setDepot(response.data[0].depot)
+                        setToken(true);
+                        
+  
+                      }
+                      else
+                      {
+                        toast('Password  is incorrect', {
+                          position: "top-center",
+                          autoClose: 50,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "light",
+                          });
+                      }
                     }
                     else
                     {
-                      toast('Password  is incorrect', {
+                      toast('UserId is incorrect', {
                         position: "top-center",
                         autoClose: 50,
                         hideProgressBar: false,
@@ -43,91 +59,92 @@ const  LoginPage= ({ setToken, setUser }) =>
                         theme: "light",
                         });
                     }
-                  }
-                  else
-                  {
-                    toast('Username is incorrect', {
-                      position: "top-center",
-                      autoClose: 50,
-                      hideProgressBar: false,
-                      closeOnClick: true,
-                      pauseOnHover: true,
-                      draggable: true,
-                      progress: undefined,
-                      theme: "light",
-                      });
-                  }
-              }
-              else
-              {
-                toast('Username is incorrect', {
-                  position: "top-center",
-                  autoClose: 50,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                  theme: "light",
-                  });
-              }
-          });
-      }
-      }
-
-    const validate=()=>{
-      let result=true;
-      if(Username===''||Username===null|| Username.match(pattern)===false)
-      {
-        toast('Username is incorrect', {
-          position: "top-center",
-          autoClose: 50,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          });
-        result=false;
-      }
-      if(Password===''||Password===null)
-      {
-        result=false;
-      }
-      return result;
-
+                }
+                else
+                {
+                  toast('UserId is incorrect', {
+                    position: "top-center",
+                    autoClose: 50,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    });
+                }
+                    
+                    
+                })
+        }
+       
     }
-    
+    const validate=(UserId,Password)=>{
+        let result=true;
+        if(UserId===''||UserId===null)
+        {
+          toast('UserId is incorrect', {
+            position: "top-center",
+            autoClose: 50,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
+          result=false;
+        }
+        if(Password===''||Password===null)
+        {
+          result=false;
+        }
+        return result;
+  
+      }
+
     return (
-    <div className={LoginCSS.adjustment}>    
-        <div className={LoginCSS.login_container}>
-
-            <h2>Login</h2>
-            <form  onSubmit={handleSubmit}>
-            <input
-                type="text"
-                className={LoginCSS.login_input}
-                placeholder="Username"
-                value={Username}
-                onChange={(e)=>{setUsername(e.target.value)}}
-                required
-            />
-            <input
-                type="password"
-                className={LoginCSS.login_input}
-                placeholder="Password"
-                value={Password}
-                onChange={(e)=>{setPassword(e.target.value)}}
-                required
-            />
-            <button type="submit" className={LoginCSS.login_button}>Login</button>
-            </form>
-            <ToastContainer/>
+        <>
+        <div className="LoginHeader">
+                <div>
+                    <img id="blobby-1" src='https://www.nipponpaint.co.in/wp-content/uploads/2021/08/Nippon-Logo-11-01-01.png' alt="Blobby" />
+                </div>
         </div>
-    </div>
-
-     );
+        
+        <div className="LoginMainClass">
+            <div className="LoginPage">
+                <h2 style={{ marginBottom: '40px' }}>
+                    {/* <img src={'https://www.nipponpaint.co.in/wp-content/uploads/2021/08/Nippon-Logo-11-01-01.png'} style={{ width: '200px' }} /> */}
+                    LOGIN
+                </h2>
+                <div>
+                    <Form form={LoginForm} onFinish={() => onLoginClick()}>
+                        <Form.Item name={"userId"} rules={[
+                            {
+                                required: true,
+                                message: 'Please input your UserId!',
+                            }
+                        ]}>
+                            <Input placeholder="User Id" size="large" />
+                        </Form.Item>
+                        <Form.Item name={"password"} rules={[
+                            {
+                                required: true,
+                                message: 'Please input your Password!',
+                            }
+                        ]}>
+                            <Input.Password placeholder="Password" type="password" size="large" />
+                        </Form.Item>
+                        <Form.Item className="LoginButtonAlign" style={{marginTop:"10px"}}>
+                            <Button size="large" htmlType="submit" type="primary" className="LoginButton">Login</Button>
+                        </Form.Item>
+                    </Form>
+                </div>
+                <ToastContainer/>
+            </div>
+         
+        </div>
+    </>
+    )
 }
-
-export default LoginPage;
+export default Login;
